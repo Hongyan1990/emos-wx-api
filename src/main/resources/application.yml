@@ -1,0 +1,72 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      max: 200
+      min-spare: 30
+    connection-timeout: 5000ms
+  port: 8080
+  servlet:
+    context-path: /emos-wx-api
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://119.23.72.26:3306/emos?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: hong180991..
+      initial-size: 4
+      max-active: 8
+      min-idle: 4
+      max-wait: 60000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+  redis:
+    database: 0
+    host: 119.23.72.26
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-active: 100
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 4
+  data:
+    mongodb:
+      host: 119.23.72.26
+      port: 27017
+      database: emos
+      authentication-database: admin
+      username: admin
+      password: 123456
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.example.emos.wx.db.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    root: info
+    com.example.emos.wx.db.dao: warn
+  pattern:
+    console: "%d{HH:mm:ss} %-5level %msg%n"
+
+emos:
+  jwt:
+    # 密钥
+    secret: abc12345
+    # 令牌过期时间
+    expire: 5
+    # 令牌缓存过期时间
+    catch-expire: 10
+
+wx:
+  appId: wxcd769840a8dd784d
+  appSecret: 376acd1530ea065b4d4d62f30b7469e4

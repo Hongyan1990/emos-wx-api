@@ -16,7 +16,7 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
       url: jdbc:mysql://119.23.72.26:3306/emos?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
       username: root
-      password: hong180991..
+      password: 
       initial-size: 4
       max-active: 8
       min-idle: 4
